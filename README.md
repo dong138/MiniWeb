@@ -28,7 +28,7 @@ pip install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### 安装SQLAlchemy
 
 ```
-pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 
@@ -37,7 +37,7 @@ pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### 1. 终端中，运行命令
 
 ```
-gunicorn -w 1 -b 127.0.0.1:8080 MiniWeb:application
+gunicorn -w 1 -b 127.0.0.1:8080 mWeb:application
 ```
 
 简单说明：
