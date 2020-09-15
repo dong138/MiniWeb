@@ -11,9 +11,9 @@ from distutils import dirname
 from os.path import abspath
 
 # 配置模板文件路径
-TEMPLATES_ROOT = "./templates/"
+TEMPLATES_ROOT = "./templates"
 # 配置资源的路径
-RESOURCE_ROOT = "./static/"
+RESOURCE_ROOT = "./static"
 # 配置视图函数存放的路径
 VIEWS_ROOT = "views"
 # 配置
