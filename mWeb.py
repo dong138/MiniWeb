@@ -8,11 +8,19 @@ import sys
 from distutils import dirname
 from os.path import abspath
 
+from configobj import ConfigObj
+
 # 配置视图函数存放的路径
 VIEWS_ROOT = "app.views"
 
 
 def application(environ, start_response):
+    config = ConfigObj("alembic.ini", encoding='UTF8')
+
+    # 读配置文件
+    # print(config['alembic'])
+    # print(config['alembic']['sqlalchemy.url'])
+
     # 获取path info
     file_name = environ['PATH_INFO']  # 这里就是浏览器输入网址中的path，例如 http://127.0.0.1:8080/index.html，此时就是/index.html
     print("请求的path--->", file_name)
