@@ -37,6 +37,12 @@ pip install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 install alembic -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+### 安装configobj
+
+```
+pip install configobj -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 ## 三、使用
 
 ### 1. 终端中，运行命令
