@@ -9,7 +9,15 @@
 
 ### 安装Gunicorn
 想要用Gunicorn需要安装，命令如下
+```
 pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+### 安装Jinj2
+
+```
+pip install jinja2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 
 ## 三、使用
