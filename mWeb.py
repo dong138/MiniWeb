@@ -11,13 +11,13 @@ from distutils import dirname
 from os.path import abspath
 
 # 配置模板文件路径
-TEMPLATES_ROOT = "./templates"
+TEMPLATES_ROOT = "./app/templates"
 # 配置资源的路径
-RESOURCE_ROOT = "./static"
+RESOURCE_ROOT = "./app/static"
 # 配置视图函数存放的路径
-VIEWS_ROOT = "views"
+VIEWS_ROOT = "app.views"
 # 配置
-MODEL_ROOT = "models"
+MODEL_ROOT = "app.models"
 
 
 def application(environ, start_response):
@@ -32,8 +32,9 @@ def application(environ, start_response):
     file_name = environ['PATH_INFO']  # 这里就是浏览器输入网址中的path，例如 http://127.0.0.1:8080/index.html，此时就是/index.html
     print("请求的path--->", file_name)
 
-    # 导入视图包
-    # sys.path.append(dirname(dirname(abspath(__file__))))
+    # 设置app路径为可以直接import的路径
+    sys.path.append(dirname(abspath(__file__)) + "/app")
+
     views = __import__(VIEWS_ROOT)
 
     # 导入模型
