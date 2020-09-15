@@ -17,7 +17,7 @@ RESOURCE_ROOT = "./app/static"
 # 配置视图函数存放的路径
 VIEWS_ROOT = "app.views"
 # 配置
-MODEL_ROOT = "app.models"
+# MODEL_ROOT = "app.models"
 
 
 def application(environ, start_response):
