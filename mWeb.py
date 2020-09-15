@@ -35,17 +35,18 @@ def application(environ, start_response):
     # 设置app路径为可以直接import的路径
     sys.path.append(dirname(abspath(__file__)) + "/app")
 
+    # 如下代码实现了"路由表"的制作
     views = __import__(VIEWS_ROOT)
 
     # 导入模型
-    models = __import__(MODEL_ROOT)
+    # models = __import__(MODEL_ROOT)
 
     # 导入路由表
     from MiniWeb.route import URL_FUNC
     print("URL_FUNC--->", URL_FUNC)
 
     try:
-        # /index.html
+        # 根据"路由表"，调用对应的视图函数
         response = URL_FUNC[file_name]()
     except Exception as ret:
         try:
