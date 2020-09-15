@@ -1,14 +1,16 @@
 """
 这里存放的是与首页相关的视图函数
 """
+from os.path import dirname, abspath
 
 print("---这是views/index.py---")
 
 from MiniWeb.route import route
 from models.user import User
+from jinja2 import PackageLoader, Environment, FileSystemLoader
 
 
-@route("/index.html")
+@route("/")
 def index():
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
@@ -22,4 +24,8 @@ def index():
     # 3. 关闭session
     session.close()
 
-    return "我是views/index.py下的index视图函数,,,%s" % user
+    env = Environment(loader=FileSystemLoader(dirname(dirname(abspath(__file__)))))
+    template = env.get_template('templates/index.html')  # 获取一个模板文件
+    response = template.render(teacher=user.username)  # 渲染
+
+    return response
