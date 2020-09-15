@@ -31,6 +31,11 @@ pip install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+### 安装alembic
+
+```
+pip3 install alembic -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ## 三、使用
 
