@@ -56,7 +56,9 @@ def application(environ, start_response):
                         if file_name.lower().endswith(file_type):
                             response_headers.append(('Content-Type', 'image/%s' % file_type[1:]))
             except Exception as ret:
-                pass
+                response_headers.append(('Content-Type', 'text/html; charset=utf-8'))
+        else:
+            response_headers.append(('Content-Type', 'text/html; charset=utf-8'))
 
     start_response(status, response_headers)
 
