@@ -34,17 +34,31 @@ def application(environ, start_response):
     from MiniWeb.route import URL_FUNC
     print("路由表--->", URL_FUNC)
 
+    # 回调服务器函数，设置response header
+    response_headers = list()
+
     try:
         # 根据"路由表"，调用对应的视图函数
-        response = URL_FUNC[file_name]()
+        response_body = URL_FUNC[file_name]().encode("utf-8")
         status = '200 OK'
+        response_headers.append(('Content-Type', 'text/html; charset=utf-8'))
     except Exception as ret:
         status = '404 NOT FOUND'
-        response = "我是404页面<br>您访问的页面不存在，请检查URL或者路由装饰是否正确"
+        response_body = "我是404页面<br>您访问的页面不存在，请检查URL或者路由装饰是否正确".encode("utf-8")
 
-    # 回调服务器函数，设置response header
-    response_headers = [('Content-Type', 'text/html; charset=utf-8')]
+        if file_name.startswith("/static"):
+            try:
+                with open("./app" + file_name, "rb") as f:
+                    response_body = f.read()
+                    status = '200 OK'
+
+                    for file_type in [".jpg", ".png", "jpeg", "gif"]:
+                        if file_name.lower().endswith(file_type):
+                            response_headers.append(('Content-Type', 'image/%s' % file_type[1:]))
+            except Exception as ret:
+                pass
+
     start_response(status, response_headers)
 
     # 将response body返回
-    return [response.encode("utf-8")]
+    return [response_body]
