@@ -19,6 +19,18 @@ pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install jinja2 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+### 安装pymysql
+
+```
+pip install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+### 安装SQLAlchemy
+
+```
+pip3 install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 
 ## 三、使用
 
