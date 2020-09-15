@@ -9,6 +9,7 @@ from distutils import dirname
 from os.path import abspath
 
 from configobj import ConfigObj
+from MiniWeb.utils import G_MINIWEB  # 这全局变量用来存放相关的配置、浏览器等信息
 
 # 配置视图函数存放的路径
 VIEWS_ROOT = "app.views"
@@ -17,9 +18,10 @@ VIEWS_ROOT = "app.views"
 def application(environ, start_response):
     config = ConfigObj("alembic.ini", encoding='UTF8')
 
-    # 读配置文件
-    # print(config['alembic'])
-    # print(config['alembic']['sqlalchemy.url'])
+    # 将配置的URL驱动添加到对象中
+    G_MINIWEB.sqlalchemy_url = config['alembic']['sqlalchemy.url']
+    # 将服务器传递归来的参数字添加到对象中
+    G_MINIWEB.env = environ
 
     # 获取path info
     file_name = environ['PATH_INFO']  # 这里就是浏览器输入网址中的path，例如 http://127.0.0.1:8080/index.html，此时就是/index.html
