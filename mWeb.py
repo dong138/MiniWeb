@@ -1,11 +1,9 @@
 """
-日期：2020年9月14日
 作者：王铭东
 email：dong4716138@163.com
 运行本版本的命令：gunicorn -w 1 -b 127.0.0.1:8080 mWeb:application
 """
 import sys
-import time
 
 from distutils import dirname
 from os.path import abspath
