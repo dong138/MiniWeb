@@ -13,7 +13,7 @@
 pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-### 安装Jinj2
+### 安装Jinja2
 
 ```
 pip install jinja2 -i https://pypi.tuna.tsinghua.edu.cn/simple
