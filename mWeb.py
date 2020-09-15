@@ -11,9 +11,6 @@ from os.path import abspath
 from configobj import ConfigObj
 from MiniWeb.utils import G_MINIWEB  # 这全局变量用来存放相关的配置、浏览器等信息
 
-# 配置视图函数存放的路径
-VIEWS_ROOT = "app.views"
-
 
 def application(environ, start_response):
     config = ConfigObj("alembic.ini", encoding='UTF8')
@@ -30,7 +27,8 @@ def application(environ, start_response):
     # 设置app路径为可以直接import的路径
     sys.path.append(dirname(abspath(__file__)) + "/app")
     # 如下代码实现了"路由表"的制作
-    views = __import__(VIEWS_ROOT)
+    views_root = "app.views"  # 配置视图函数存放的路径
+    views = __import__(views_root)
 
     # 导入路由表
     from MiniWeb.route import URL_FUNC
