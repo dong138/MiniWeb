@@ -20,7 +20,7 @@ fileConfig(config.config_file_name)
 # target_metadata = None
 import sys
 from os.path import abspath, dirname
-sys.path.append(dirname(dirname(abspath(__file__))))
+sys.path.append(dirname(dirname(dirname(dirname(abspath(__file__))))))
 from app.models import Base
 target_metadata = Base.metadata
 
