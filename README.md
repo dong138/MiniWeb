@@ -7,40 +7,9 @@
 
 ## 二、准备工作
 
-### 安装Gunicorn
-想要用Gunicorn需要安装，命令如下
+在终端中执行如下命令，以安装需要的包、模块
 ```
-pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 安装Jinja2
-
-```
-pip install jinja2 -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 安装pymysql
-
-```
-pip install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 安装SQLAlchemy
-
-```
-pip install sqlalchemy -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 安装alembic
-
-```
-pip3 install alembic -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 安装configobj
-
-```
-pip install configobj -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ## 三、使用
